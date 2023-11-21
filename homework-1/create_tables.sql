@@ -6,19 +6,22 @@ CREATE TABLE employees (
 	title CHARACTER VARYING(100),
 	birth_date DATE,
 	notes TEXT
-)
+);
 
 CREATE TABLE customers (
-	customer_id CHARACTER VARYING(5) PRIMARY KEY,
+	customer_id CHARACTER VARYING(100) PRIMARY KEY,
 	company_name CHARACTER VARYING(100),
-	contact_name CHARACTER VARYING(50)
-)
+	contact_name CHARACTER VARYING(100)
+);
 
 CREATE TABLE orders (
-	order_id INTEGER PRIMARY KEY,
-	customer_id CHARACTER REFERENCES customers(customer_id),
-	employee_id INTEGER REFERENCES employees(employee_id),
+	order_id SERIAL PRIMARY KEY,
+	customer_id CHARACTER VARYING(100),
+	employee_id INTEGER,
 	order_date DATE,
-	ship_city CHARACTER VARYING(100)
-)
+	ship_city TEXT,
+	FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+	FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
 

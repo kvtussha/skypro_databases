@@ -57,14 +57,15 @@ def orders() -> None:
     Функция заполняет таблицу customers в базе данных
     :return:
     """
-    orders_list = csv_reader('orders_data.csv')
+    orders_list = csv_reader('orders_data.csv')[1:]
 
-    for i in orders_list[1:]:
+    for i in orders_list:
+        i = (int(i[0]), i[1], int(i[2]), i[3], i[4])
         cur.execute('INSERT INTO orders VALUES (%s, %s, %s, %s, %s)', i)
         conn.commit()
 
 
-# orders()
+orders()
 # cur.execute('SELECT * FROM orders')
 # rows = cur.fetchall()
 # for row in rows:
