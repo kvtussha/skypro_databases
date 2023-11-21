@@ -65,13 +65,10 @@ def orders() -> None:
         conn.commit()
 
 
-orders()
-# cur.execute('SELECT * FROM orders')
-# rows = cur.fetchall()
-# for row in rows:
-#     print(row)
+# customers()
+# employees()
+# orders()
 
 """Close cursor and connection"""
 cur.close()
 conn.close()
-
