@@ -65,9 +65,9 @@ def orders() -> None:
         conn.commit()
 
 
-# customers()
-# employees()
-# orders()
+customers()
+employees()
+orders()
 
 """Close cursor and connection"""
 cur.close()
